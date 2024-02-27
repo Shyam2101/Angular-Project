@@ -34,3 +34,19 @@
 <button (click)="goSub()">sub</button>
 
 </form>
+
+
+<sub [item]="currentItem" (newItemEvent)="addItem($event)">  </sub>
+
+
+
+
+
+
+
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+
+

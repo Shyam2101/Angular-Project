@@ -1,8 +1,12 @@
-<p> hello world</p>
-<calculator
-   myName="{{name}}"></calculator>
 
+<p>
+  Todays item:{{item}}
+</p>
+<br>
 
+<label>Add an item</label>
+<input type="text" id="item-input" #newItem/>
+<button (click)="addNewItem(newItem.value)">Add to parent list</button>
 <div>
     <button onclick="go()">Go To</button>
 </div>

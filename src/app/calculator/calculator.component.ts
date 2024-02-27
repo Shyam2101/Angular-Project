@@ -13,8 +13,12 @@ export class CalculatorComponent {
  result: number = 0;
 user: any;
 values='';
+currentItem="computer";
 
-@Input('myName') name:any;
+items=[''];
+addItem(newItem:string){
+  this.items.push(newItem);
+}
 
 
 

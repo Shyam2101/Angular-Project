@@ -1,4 +1,4 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input,Output,EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +8,14 @@ import { Router } from '@angular/router';
 })
 export class SubComponent {
 
+  @Input() item='';
+  @Output() newItemEvent = new EventEmitter<any>();
+newItem: any;
 
-result: any;
-name="shyam";
+    addNewItem(value:string){
+      this.newItemEvent.emit(value);
+    }
+
   constructor(private route:Router){}
 
   go(){
@@ -19,4 +24,8 @@ name="shyam";
 
 
 
-}
+  }
+
+
+
+
