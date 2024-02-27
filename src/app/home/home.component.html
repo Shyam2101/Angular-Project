@@ -1,0 +1,58 @@
+
+<h1 style="display: ruby-text">Welcome</h1>
+<div>
+    <label> First Name</label>
+    <input type="text"  [(ngModel)]="firstName" placeholder="Enter first name">
+    
+</div>
+<br>
+<div>
+    <label>Last Name</label>
+    <input type="text" [(ngModel)]="lastName" placeholder="Enter a last name">
+  
+</div>
+<br>
+<div>
+    <label>Age</label>
+    <input type="text" [(ngModel)]="age" placeholder="Enter Age">
+    
+</div>
+<br>
+<button (click)="push()">Add</button>
+
+<br>
+<label><h3> Array Table</h3></label>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let item of myArray" >
+            <td>{{item.firstname}}</td>
+            <td>{{item.lastname}}</td>
+            <td>{{item.age}}</td>
+        </tr>
+    </table>
+    <div>
+
+    </div>
+    <br>
+<label> <h3>Opeartion in Array</h3> </label>
+    <input type="number" [(ngModel)]="index" placeholder="Enter index to delete">
+    <button (click)="onDelete()">Delete</button>
+</div>
+
+<h3> Finding </h3>
+<br>
+<div>
+    <label> Enter a Name :</label>
+    <input type="text" [(ngModel)]="find" placeholder="Enter a Name to Find">
+    <button (click)="onSubmit()">Submit</button>
+    <br>
+    {{findArray|json}}
+    
+</div>

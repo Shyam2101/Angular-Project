@@ -1,0 +1,42 @@
+<h1 style="display: ruby-text" >WELCOME!!!{{ username.username }}</h1>
+<ul>
+    <li><a (click)="onHome()">Home</a></li>
+    <li><a (click)="onContact()">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+
+<div>
+    <label>MY APP !!!</label>
+    <button (click)="onClick()" >click to navigate</button>
+</div>
+
+
+<br>
+<button (click)="onLogout()">LOGOUT</button>
+<br>
+<label>Table</label>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>option</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>age</th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let item of arr1">
+            <button (click)="onEdit(item.firstname)">edit</button>
+            <button (click)="onDelete(item.firstname)">delete</button>
+            <td>{{item.firstname}}</td>
+            <td>{{item.lastname}}</td>
+            <td>{{item.age}}</td>
+
+
+        </tr>
+    </table>
+</div>
+<br>
+
+<button (click)="onShow()">show edited data</button>

@@ -1,0 +1,15 @@
+<label>firstname</label>
+
+<input type="text"  [(ngModel)]="firstname" [readonly]="true"/>
+
+<br>
+<label>lastname</label>
+<input type="text" [(ngModel)]="lastname" />
+<br>
+
+<label>age</label>
+<input type="text" [(ngModel)]="age"/>
+
+<br>
+<button (click)="onSave()">save</button>
+
