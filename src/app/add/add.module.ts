@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AddComponent } from './add.component';
 import { EditComponent } from './edit/edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 export const route:Routes=[
@@ -24,6 +25,8 @@ export const route:Routes=[
     RouterModule.forChild(route),
     CommonModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AddModule { }

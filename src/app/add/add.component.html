@@ -15,8 +15,11 @@
 <button (click)="onLogout()">LOGOUT</button>
 <br>
 <label>Table</label>
+<button (click)="toggle()" class="toggle" >
+  {{buttonName}}
+</button>
 <div>
-    <table>
+    <table *ngIf="show" >
         <thead>
             <tr>
                 <th>option</th>
@@ -29,14 +32,85 @@
         <tr *ngFor="let item of arr1">
             <button (click)="onEdit(item.firstname)">edit</button>
             <button (click)="onDelete(item.firstname)">delete</button>
+
+
             <td>{{item.firstname}}</td>
             <td>{{item.lastname}}</td>
             <td>{{item.age}}</td>
-
-
         </tr>
     </table>
+
 </div>
 <br>
 
 <button (click)="onShow()">show edited data</button>
+
+<hr>
+  <button (dblclick)="logOut()">Sign out</button>
+
+<br>
+<hr>
+<div>
+  <table *ngIf="!error">
+      <thead>
+          <tr>
+              <th>option</th>
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+          <th>otp</th>
+          </tr>
+      </thead>
+
+      <tr *ngFor="let item of arr2">
+
+          <button (click)="deleteUserId(item.id)">Delete</button>
+          <button (click)="editUser(item.id)">Edit</button>
+
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.otp}}</td>
+      </tr>
+  </table>
+
+</div>
+  <div *ngIf="error">
+    <div> {{error}}  </div>
+  </div>
+
+  <hr>
+<br>
+<h3 style="color: tomato;"> REACTIVE FORM</h3>
+  <!-- reactive form -->
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+      <label>ID</label>
+      <input type="text"  placeholder="Enter ID" formControlName="ID" [readonly]="true">
+
+      <label>NAME</label>
+      <input type="text" (keydown)="onKeyUp($event)" placeholder="Enter NAME" formControlName="NAME">
+      <div *ngIf="iffShow">
+        <span style="color: red;">Name is required</span>
+      </div>
+
+
+      <label>EMAIL</label>
+      <input type="text" (keydown)="onKeydown($event)" placeholder="Enter EMAIL" formControlName="EMAIL">
+      <div *ngIf="ifShow">
+        <span style="color: red;">Email is required</span>
+      </div>
+
+
+      <label>OTP</label>
+      <input type="text" placeholder="Enter OTP" formControlName="OTP"  [readonly]="true">
+    <br>
+    <br>
+
+      <button type="submit">Add</button>
+
+  </form>
+
+  <div class="loading" *ngIf="isLoading">
+    <img src="../../../assets/images/Color-Loader-nibers.gif" />
+  </div>

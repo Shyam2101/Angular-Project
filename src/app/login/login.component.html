@@ -1,16 +1,33 @@
+
+
+<body>
+  <div class="container" id="container">
+		<body class="form-container log-in-container">
+			<form action="#"  #form="ngForm">
+
+<h1>Login</h1>
+
 <div>
-    <label>User Name</label>
-    <br>
-    <input type="text" [(ngModel)]="userName" class="textBox" placeholder="Enter UserName">
-<br>
-<br>
-    <br>
-    <label> Password</label>
-    <br>
-    <input type="text" [(ngModel)]="password" placeholder="Enter Password">
-<br>
-    <br>
-<br>
+
+    <input type="text"  name="userName" [(ngModel)]="userName"  placeholder="Enter UserName">
+
+
+    <input type="text" name="password" [(ngModel)]="password" placeholder="Enter Password">
+
     <button (click)="onSubmit()" class="button">SUBMIT</button>
 
 </div>
+</form>
+
+<!-- <div class="overlay-container"> -->
+  <!-- <div class="overlay">
+    <div class="overlay-panel overlay-right">
+      <h1>HTML CSS Login Form</h1>
+      <p>This login form is created using pure HTML and CSS. For social icons, FontAwesome is used.</p>
+    </div>
+  </div> -->
+<!-- </div> -->
+</body>
+
+
+

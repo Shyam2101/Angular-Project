@@ -22,7 +22,7 @@ export class LoginComponent {
 
     },{
       'username':'Aishwarya',
-      'password':'12345',
+      'password':'123456',
     }
 
   ]
@@ -30,6 +30,7 @@ export class LoginComponent {
 
   constructor( private route: ActivatedRoute,
     private router: Router,) {
+
 
   }
 
@@ -67,6 +68,8 @@ export class LoginComponent {
      }
      else{
       this.router.navigate(['edit'])
+
+
      }
 
 
