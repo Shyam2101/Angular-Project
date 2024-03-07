@@ -20,6 +20,7 @@ const routes: Routes = [];
     {path:'contact',component:ContactComponent},
     {path:'sub',canActivate:[authGuard],component:SubComponent},
     {path:'home',component:HomeComponent},
+
     {path:'notfound',component:NotfoundComponent},
     // {path:'**',redirectTo:'notfound'},
     { path:'edit',canActivate:[authGuard],

@@ -13,7 +13,12 @@ export class CalculatorComponent {
  result: number = 0;
 user: any;
 values='';
-currentItem="computer";
+showTotal:any;
+
+currentItem="computer"; // for input
+
+
+
 
 items=[''];
 addItem(newItem:string){
@@ -31,8 +36,15 @@ addItem(newItem:string){
 
   }
 
+
+
+
+
+
   sum() {
     this.result = parseInt(this.num1) + parseInt(this.num2);
+    console.log(this.result);
+
 
   }
 
@@ -69,6 +81,13 @@ addItem(newItem:string){
 
     goSub(){
     this.rout.navigate(['sub'])
+
+    }
+
+    getTotal(event:any){
+      console.log(event);
+
+      this.showTotal=event
 
     }
 

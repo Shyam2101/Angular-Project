@@ -1,12 +1,24 @@
+ <!-- for input
+ this is for display data from parent component -->
 
 <p>
   Todays item:{{item}}
 </p>
 <br>
 
+<h3>
+  static Num:{{Total}}
+</h3>
+
+<!-- for output
+this is for  -->
+
 <label>Add an item</label>
 <input type="text" id="item-input" #newItem/>
 <button (click)="addNewItem(newItem.value)">Add to parent list</button>
+
+
+
 <div>
     <button onclick="go()">Go To</button>
 </div>

@@ -11,6 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { InterceptorInterceptor } from './interceptor.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -35,7 +37,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 
   ],
-  providers: [],
+  providers: [
+    {
+    provide:HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

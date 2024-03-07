@@ -6,6 +6,7 @@ import { AddComponent } from './add.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CalculatorComponent } from '../calculator/calculator.component';
 
 
 export const route:Routes=[
@@ -18,7 +19,8 @@ export const route:Routes=[
 @NgModule({
   declarations: [
     AddComponent,
-    EditComponent
+    EditComponent,
+
   ],
 
   imports: [

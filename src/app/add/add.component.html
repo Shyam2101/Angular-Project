@@ -1,4 +1,6 @@
 <h1 style="display: ruby-text" >WELCOME!!!{{ username.username }}</h1>
+<button (click)="onLogout()" class="button-85">LOGOUT</button>
+<hr>
 <ul>
     <li><a (click)="onHome()">Home</a></li>
     <li><a (click)="onContact()">Contact</a></li>
@@ -7,12 +9,15 @@
 
 <div>
     <label>MY APP !!!</label>
-    <button (click)="onClick()" >click to navigate</button>
+    <button (click)="onClick()"  >click to navigate</button>
 </div>
 
 
+
+
 <br>
-<button (click)="onLogout()">LOGOUT</button>
+<br>
+
 <br>
 <label>Table</label>
 <button (click)="toggle()" class="toggle" >
@@ -81,6 +86,8 @@
 
   <hr>
 <br>
+
+<button (click)="apiTable()">Click to show table from API</button>
 <h3 style="color: tomato;"> REACTIVE FORM</h3>
   <!-- reactive form -->
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
@@ -107,7 +114,7 @@
     <br>
     <br>
 
-      <button type="submit">Add</button>
+      <button type="submit">SAVE</button>
 
   </form>
 

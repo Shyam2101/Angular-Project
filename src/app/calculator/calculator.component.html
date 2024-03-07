@@ -34,13 +34,14 @@
 <button (click)="goSub()">sub</button>
 
 </form>
+<h2>show total after adding:{{showTotal}}</h2>
+<hr>
 
+<sub [globalName]="currentItem"
+  [globalValue]="result"
 
-<sub [item]="currentItem" (newItemEvent)="addItem($event)">  </sub>
-
-
-
-
+(sendData)="addItem($event)"
+(sendTotal)="getTotal($event)"></sub>
 
 
 

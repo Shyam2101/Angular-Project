@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../service/login/login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -57,24 +57,26 @@ ifShow:boolean=false;
 
   constructor(private route:Router, private apiService:LoginService){     // to call API service
 
-    this.getAllUser();
+
 
   }
+
+
 
   addForm!: FormGroup ;
 
   ngOnInit(): void{
 
-   this.username =localStorage.getItem('credentials');
+   this.username =localStorage.getItem('credentials');  //get item from local storge
    this.username=JSON.parse(this.username);
    console.log(this.username);
 
 
 
-   this.addForm= new FormGroup({
+   this.addForm= new FormGroup({  //setting form group and form group controls
     'ID': new FormControl(''),
-    'NAME': new FormControl('',[Validators.required]),
-    'EMAIL': new FormControl('',[Validators.required]),
+    'NAME': new FormControl('',[Validators.required]),   //to validate form
+    'EMAIL': new FormControl('',[Validators.required]),  //to validate form
     'OTP': new FormControl('')
    })
 
@@ -82,12 +84,26 @@ ifShow:boolean=false;
   }
 
 
-
+  apiTable(){
+    this.getAllUser();
+  }
 
 
 
   onClick(){
-    this.route.navigate(['calc'])
+    var touch =this.addForm.touched  // trigger if form is touched
+    console.log(touch);
+    var dirty =this.addForm.dirty    // triggers if form is being edited and wrongly exit or cancel
+    console.log(dirty);
+    if(dirty==true){
+      alert('You have unsaved changes')
+    }
+    else{
+      this.route.navigate(['calc'])
+    }
+
+
+
 
   }
 
@@ -124,7 +140,7 @@ ifShow:boolean=false;
 
   onEdit(receive:any){
     this.route.navigate(['edit/'+receive]);
-   localStorage.setItem('edit',JSON.stringify(this.arr1))
+   localStorage.setItem('edit',JSON.stringify(this.arr1))  // to set item in local storage
   }
 
 
@@ -190,7 +206,7 @@ deleteUserId(id:any){  //for API
 }
 
 editUser(id:any){
-  this.isLoading=true
+  this.isLoading=true   // isLoading is for Api loading GIF
   this.apiService.editUser(id).subscribe((get:any)=>{
     console.log(get);
 this.isLoading=false;
@@ -202,7 +218,7 @@ this.isLoading=false;
          this.addForm.controls['EMAIL'].setValue(get.email),
          this.addForm.controls['OTP'].setValue(get.otp),
 
-      this.addForm.patchValue(get)
+      this.addForm.patchValue(get)  //patchValue is for binding data to form
     }
 
   })
@@ -255,7 +271,7 @@ if(this.addForm.valid && this.ifShow==false && this.iffShow==false) // id fields
 
     if(post.httpStatus==200){
       this.getAllUser();
-      this.addForm.reset();
+      this.addForm.reset();  //reset() is for clear data in form after submit like that
     }
 
 
